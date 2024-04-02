@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  Medit
+//
+//  Created by 木本瑛介 on 2024/02/12.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+ACCESS_KEY = a05aritnSAoXHy2zVTtXYZ8LeePZdfFBiltCJi4yWXY
+SECRET_KEY = zfO083Yr46inCj29i5R7zQhZVXTYLdAVjCEBubDQ1XI

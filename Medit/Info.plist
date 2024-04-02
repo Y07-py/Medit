@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACCESS_KEY</key>
+	<string>$(ACCESS_KEY)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.387206965668-7gm0stro00n9502j1svs9ua8660qhlsq</string>
+			</array>
+		</dict>
+	</array>
+	<key>SECRET_KEY</key>
+	<string>$(SECRET_KEY)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NotoSerifJP-Regular.otf</string>
+		<string>NotoSerifJP-Bold.otf</string>
+		<string>MPLUSRounded1c-Light.ttf</string>
+		<string>DelaGothicOne-Regular.ttf</string>
+		<string>SawarabiMincho-Regular.ttf</string>
+		<string>DotGothic16-Regular.ttf</string>
+		<string>TrainOne-Regular.ttf</string>
+		<string>SawarabiGothic-Regular.ttf</string>
+		<string>ZenAntique-Regular.ttf</string>
+		<string>RampartOne-Regular.ttf</string>
+		<string>Chokokutai-Regular.ttf</string>
+	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+</dict>
+</plist>

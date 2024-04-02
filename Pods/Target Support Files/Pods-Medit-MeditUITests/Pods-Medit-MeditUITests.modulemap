@@ -1,0 +1,6 @@
+framework module Pods_Medit_MeditUITests {
+  umbrella header "Pods-Medit-MeditUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

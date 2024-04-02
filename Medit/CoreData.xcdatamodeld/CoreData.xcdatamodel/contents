@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ActiveUserModel" representedClassName=".ActiveUserModel" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="profile" optional="YES" attributeType="String"/>
+        <attribute name="userImage" optional="YES" attributeType="Binary"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActiveUserModel" inverseName="friends" inverseEntity="ActiveUserModel"/>
+        <relationship name="user_document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorDocumentModel" inverseName="user_document" inverseEntity="EditorDocumentModel"/>
+        <relationship name="user_memo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorMemoModel" inverseName="usre_memo" inverseEntity="EditorMemoModel"/>
+        <relationship name="user_task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorTaskModel" inverseName="user_task" inverseEntity="EditorTaskModel"/>
+    </entity>
+    <entity name="EditorBaseModel" representedClassName=".EditorBaseModel" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lineNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="listType" optional="YES" attributeType="String"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="separateHeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="textAlignment" optional="YES" attributeType="String"/>
+        <relationship name="basemodels" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorTaskModel" inverseName="basemodels" inverseEntity="EditorTaskModel"/>
+        <relationship name="basemodels_document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorDocumentModel" inverseName="basemodels_document" inverseEntity="EditorDocumentModel"/>
+        <relationship name="basemodels_memo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorMemoModel" inverseName="basemodels_memo" inverseEntity="EditorMemoModel"/>
+        <relationship name="childdata" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EditorBaseModel" inverseName="childdata" inverseEntity="EditorBaseModel"/>
+        <relationship name="edgeinsets" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorEdgeInsets" inverseName="edgeinsets" inverseEntity="EditorEdgeInsets"/>
+        <relationship name="mediadata" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MediaDataModel" inverseName="mediadata" inverseEntity="MediaDataModel"/>
+        <relationship name="textmodel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TextDataModel" inverseName="textmodel" inverseEntity="TextDataModel"/>
+        <fetchedProperty name="fetchedProperty" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="EditorBaseModel"/>
+        </fetchedProperty>
+    </entity>
+    <entity name="EditorDocumentModel" representedClassName=".EditorDocumentModel" syncable="YES">
+        <attribute name="coverImage" optional="YES" attributeType="Binary"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="basemodels_document" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EditorBaseModel" inverseName="basemodels_document" inverseEntity="EditorBaseModel"/>
+        <relationship name="user_document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActiveUserModel" inverseName="user_document" inverseEntity="ActiveUserModel"/>
+    </entity>
+    <entity name="EditorEdgeInsets" representedClassName=".EditorEdgeInsets" syncable="YES">
+        <attribute name="bottom" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="leading" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="top" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="trailing" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="edgeinsets" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorBaseModel" inverseName="edgeinsets" inverseEntity="EditorBaseModel"/>
+    </entity>
+    <entity name="EditorMemoModel" representedClassName=".EditorMemoModel" syncable="YES">
+        <attribute name="coverImage" optional="YES" attributeType="Binary"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="basemodels_memo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EditorBaseModel" inverseName="basemodels_memo" inverseEntity="EditorBaseModel"/>
+        <relationship name="usre_memo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActiveUserModel" inverseName="user_memo" inverseEntity="ActiveUserModel"/>
+    </entity>
+    <entity name="EditorTaskModel" representedClassName=".EditorTaskModel" syncable="YES">
+        <attribute name="coverImage" optional="YES" attributeType="Binary"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="emoji" optional="YES" attributeType="String"/>
+        <attribute name="endData" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isRepeat" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="basemodels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EditorBaseModel" inverseName="basemodels" inverseEntity="EditorBaseModel"/>
+        <relationship name="status" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskStatusModel" inverseName="status" inverseEntity="TaskStatusModel"/>
+        <relationship name="urls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EditorURL" inverseName="urls" inverseEntity="EditorURL"/>
+        <relationship name="user_task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActiveUserModel" inverseName="user_task" inverseEntity="ActiveUserModel"/>
+    </entity>
+    <entity name="EditorURL" representedClassName=".EditorURL" syncable="YES">
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="urls" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorTaskModel" inverseName="urls" inverseEntity="EditorTaskModel"/>
+    </entity>
+    <entity name="MediaDataModel" representedClassName=".MediaDataModel" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <relationship name="mediadata" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorBaseModel" inverseName="mediadata" inverseEntity="EditorBaseModel"/>
+    </entity>
+    <entity name="TaskStatusModel" representedClassName=".TaskStatusModel" syncable="YES">
+        <attribute name="doing" optional="YES" attributeType="String"/>
+        <attribute name="done" optional="YES" attributeType="String"/>
+        <attribute name="waiting" optional="YES" attributeType="String"/>
+        <relationship name="status" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorTaskModel" inverseName="status" inverseEntity="EditorTaskModel"/>
+    </entity>
+    <entity name="TextDataModel" representedClassName=".TextDataModel" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="textColor" optional="YES" attributeType="String"/>
+        <attribute name="textFont" optional="YES" attributeType="String"/>
+        <attribute name="textFormat" optional="YES" attributeType="String"/>
+        <attribute name="textSize" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="textmodel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EditorBaseModel" inverseName="textmodel" inverseEntity="EditorBaseModel"/>
+    </entity>
+</model>
